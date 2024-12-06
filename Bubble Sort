@@ -1,0 +1,47 @@
+def bubble_sort(n,key='transaction_amount'):
+    sorted = False
+    for i in range(len(n)-1):
+        for j in range(0,len(n)-1-i):
+            if n[j][key] > n[j+1][key]:
+                sorted = True
+                temp = n[j]
+                n[j] = n[j+1]
+                n[j+1] = temp
+        if not(sorted):
+            break
+                
+    return n
+
+elements = [
+        { 'name': 'mona',   'transaction_amount': 1000, 'device': 'iphone-10'},
+        { 'name': 'dhaval', 'transaction_amount': 400,  'device': 'google pixel'},
+        { 'name': 'kathy',  'transaction_amount': 200,  'device': 'vivo'},
+        { 'name': 'aamir',  'transaction_amount': 800,  'device': 'iphone-8'},
+    ]
+
+after_sort= (bubble_sort(elements,key='transaction_amount'))
+for i in after_sort:
+    print(i)
+
+
+######################################
+#Example input and output#
+#####################################
+elements = [
+        { 'name': 'mona',   'transaction_amount': 1000, 'device': 'iphone-10'},
+        { 'name': 'dhaval', 'transaction_amount': 400,  'device': 'google pixel'},
+        { 'name': 'kathy',  'transaction_amount': 200,  'device': 'vivo'},
+        { 'name': 'aamir',  'transaction_amount': 800,  'device': 'iphone-8'},
+    ]
+
+bubble_sort(elements, key='transaction_amount')
+
+O/P: 
+elements = [
+        { 'name': 'kathy',  'transaction_amount': 200,  'device': 'vivo'},
+        { 'name': 'dhaval', 'transaction_amount': 400,  'device': 'google pixel'},
+        { 'name': 'aamir',  'transaction_amount': 800,  'device': 'iphone-8'},
+        { 'name': 'mona',   'transaction_amount': 1000, 'device': 'iphone-10'},
+    ]
+
+
